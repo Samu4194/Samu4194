@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio personal de Samuel Carrera, estudiante de Ingeniería de Software.">
+  <title>Samuel Carrera | Portafolio</title>
+
+  <style>
+    :root {
+      --fondo: #0b1120;
+      --superficie: #111c30;
+      --borde: #263650;
+      --texto: #f1f5ff;
+      --suave: #b8c5da;
+      --azul: #2563eb;
+      --celeste: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          ellipse 75% 30% at 50% 0%,
+          #183361 0,
+          transparent 75%
+        ),
+        var(--fondo);
+      color: var(--texto);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .contenedor {
+      width: min(1080px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    /* MENÚ DE NAVEGACIÓN */
+
+    .barra {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 17, 32, 0.9);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .barra .contenedor {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .marca {
+      font-weight: bold;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .marca span {
+      color: var(--celeste);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--suave);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--celeste);
+    }
+
+    /* PORTADA */
+
+    .portada {
+      position: relative;
+      margin-top: 32px;
+      padding: 85px 22px 100px;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 22px;
+      background: linear-gradient(
+        110deg,
+        #10213f 0%,
+        #16356d 48%,
+        #2453b4 100%
+      );
+      box-shadow: 0 25px 75px #0005;
+    }
+
+    .portada::after {
+      content: "";
+      position: absolute;
+      left: -6%;
+      bottom: -48px;
+      width: 115%;
+      height: 92px;
+      background: var(--fondo);
+      transform: rotate(-2deg);
+      border-radius: 55% 48% 0 0;
+    }
+
+    .portada h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 75px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+    }
+
+    .portada p {
+      margin-top: 18px;
+      color: #e2edff;
+      font-size: 18px;
+    }
+
+    /* PRESENTACIÓN */
+
+    .intro {
+      text-align: center;
+      padding: 45px 0 20px;
+    }
+
+    .intro h2 {
+      font-size: 27px;
+      margin: 0;
+    }
+
+    .intro p {
+      max-width: 680px;
+      margin: 18px auto 24px;
+      color: var(--suave);
+    }
+
+    .etiquetas {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .etiqueta {
+      border: 1px solid #3c5f9c;
+      color: #d7e9ff;
+      background: #17315a;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    .lema {
+      display: block;
+      margin-top: 22px;
+      color: var(--suave);
+      font-size: 14px;
+    }
+
+    /* SECCIONES */
+
+    section.bloque {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--borde);
+      scroll-margin-top: 90px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 0 0 25px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin: 0 0 18px;
+      color: #d9e6ff;
+    }
+
+    .tarjeta {
+      background: linear-gradient(
+        150deg,
+        rgba(22, 36, 61, 0.97),
+        rgba(15, 26, 44, 0.97)
+      );
+      border: 1px solid var(--borde);
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    /* SOBRE MÍ */
+
+    .acerca ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+
+    .acerca li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    /* TECNOLOGÍAS */
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .tecnologia {
+      text-align: center;
+    }
+
+    .tecnologia img {
+      max-height: 60px;
+      width: auto;
+      margin-top: 8px;
+    }
+
+    /* REPOSITORIOS */
+
+    .centro {
+      text-align: center;
+    }
+
+    .repositorios p {
+      color: var(--suave);
+      margin-bottom: 24px;
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--azul);
+      color: white;
+      text-decoration: none;
+      border-radius: 9px;
+      padding: 12px 22px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .boton:hover {
+      background: #3476ff;
+      transform: translateY(-3px);
+    }
+
+    /* ESTADÍSTICAS */
+
+    .estadisticas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .estadisticas .tarjeta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 190px;
+    }
+
+    .estadisticas img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* TEXTO ANIMADO */
+
+    .texto-animado {
+      font-family: Consolas, monospace;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--celeste);
+      min-height: 45px;
+    }
+
+    .texto-animado::after {
+      content: "▌";
+      animation: parpadeo 1s step-end infinite;
+    }
+
+    @keyframes parpadeo {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* SERPIENTE */
+
+    .snake {
+      width: 100%;
+      min-height: 150px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* PERRITO ANIMADO */
+
+    .mascota {
+      padding: 45px 0 55px;
+      text-align: center;
+    }
+
+    .mascota img {
+      display: block;
+      width: 200px;
+      max-width: 70%;
+      height: auto;
+      margin: 0 auto 20px;
+      image-rendering: pixelated;
+    }
+
+    .mascota p {
+      color: var(--suave);
+      font-style: italic;
+    }
+
+    /* PIE DE PÁGINA */
+
+    footer {
+      text-align: center;
+      color: var(--suave);
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--borde);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--celeste);
+      text-decoration: none;
+    }
+
+    /* DISEÑO PARA CELULARES */
+
+    @media (max-width: 720px) {
+
+      .barra .contenedor {
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .portada {
+        margin-top: 18px;
+        padding: 65px 18px 85px;
+      }
+
+      .rejilla {
+        grid-template-columns: 1fr;
+      }
+
+      .estadisticas {
+        grid-template-columns: 1fr;
+      }
+
+      section.bloque {
+        padding: 30px 0;
+      }
+
+      .texto-animado {
+        font-size: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .boton {
+        transition: none;
+      }
+
+      .texto-animado::after {
+        animation: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- MENÚ SUPERIOR -->
+
+  <header class="barra">
+    <div class="contenedor">
+
+      <a class="marca" href="#inicio">
+        Samuel <span>Carrera</span>
+      </a>
+
+      <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#tecnologias">Tecnologías</a>
+        <a href="#repositorios">Repositorios</a>
+        <a href="#estadisticas">Estadísticas</a>
+        <a href="#contribuciones">Contribuciones</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="contenedor" id="inicio">
+
+    <!-- BANNER PRINCIPAL -->
+
+    <div class="portada">
+
+      <h1>Samuel Carrera</h1>
+
+      <p>
+        Bienvenido a mi espacio de desarrollo de software
+      </p>
+
+    </div>
+
+    <!-- PRESENTACIÓN -->
+
+    <div class="intro">
+
+      <h2>👋 ¡Hola! Bienvenido a mi espacio en GitHub</h2>
+
+      <p>
+        Me apasiona aprender sobre programación,
+        desarrollar aplicaciones y explorar nuevas
+        tecnologías para mejorar mis habilidades.
+      </p>
+
+      <div class="etiquetas">
+        <span class="etiqueta">DESARROLLO WEB</span>
+        <span class="etiqueta">APLICACIONES DE ESCRITORIO</span>
+      </div>
+
+      <small class="lema">
+        💻 Aprendiendo, programando y construyendo
+        nuevos proyectos.
+      </small>
+
+    </div>
+
+    <!-- SOBRE MÍ -->
+
+    <section id="sobre-mi" class="bloque acerca">
+
+      <h2>👨‍💻 Sobre mí</h2>
+
+      <div class="tarjeta">
+
+        <ul>
+          <li>🎓 Estudiante de Ingeniería de Software.</li>
+
+          <li>💻 Con conocimientos en desarrollo web
+          y programación.</li>
+
+          <li>📚 En constante aprendizaje de nuevas
+          tecnologías.</li>
+
+          <li>🛠️ Interesado en crear soluciones
+          mediante software.</li>
+
+          <li>🚀 Utilizo GitHub para compartir
+          mis trabajos y proyectos.</li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+
+    <section id="tecnologias" class="bloque">
+
+      <h2>🛠️ Tecnologías y herramientas</h2>
+
+      <div class="rejilla">
+
+        <div class="tarjeta tecnologia">
+
+          <h3>Lenguajes</h3>
+
+          <img
+            src="https://skillicons.dev/icons?i=java,cs,html,css&amp;theme=dark"
+            alt="Java, C#, HTML y CSS"
+          >
+
+        </div>
+
+        <div class="tarjeta tecnologia">
+
+          <h3>Frameworks y librerías</h3>
+
+          <img
+            src="https://skillicons.dev/icons?i=react,bootstrap&amp;theme=dark"
+            alt="React y Bootstrap"
+          >
+
+        </div>
+
+        <div class="tarjeta tecnologia">
+
+          <h3>Control de versiones</h3>
+
+          <img
+            src="https://skillicons.dev/icons?i=git,github&amp;theme=dark"
+            alt="Git y GitHub"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- REPOSITORIOS -->
+
+    <section id="repositorios" class="bloque repositorios">
+
+      <h2>📂 Mis repositorios</h2>
+
+      <div class="tarjeta centro">
+
+        <p>
+          En mi GitHub comparto ejercicios de programación,
+          trabajos académicos y proyectos de desarrollo
+          de software.
+        </p>
+
+        <a
+          class="boton"
+          href="https://github.com/Samu4194?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver mis repositorios ↗
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+
+    <section id="estadisticas" class="bloque">
+
+      <h2>📊 Mis estadísticas de GitHub</h2>
+
+      <div class="estadisticas">
+
+        <div class="tarjeta">
+
+          <img
+            src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Samu4194&amp;theme=tokyonight"
+            alt="Estadísticas de Samuel en GitHub"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="tarjeta">
+
+          <img
+            src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Samu4194&amp;theme=tokyonight"
+            alt="Lenguajes más utilizados"
+            loading="lazy"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TEXTO ANIMADO -->
+
+    <section class="bloque centro">
+
+      <h2>✨ Un poco más sobre mí</h2>
+
+      <p class="texto-animado" id="escritura">
+        Java | C# | React
+      </p>
+
+      <div class="etiquetas">
+
+        <span class="etiqueta">DESARROLLO WEB</span>
+
+        <span class="etiqueta">
+          PASIÓN POR LA PROGRAMACIÓN
+        </span>
+
+      </div>
+
+    </section>
+
+    <!-- SERPIENTE DE GITHUB -->
+
+    <section id="contribuciones" class="bloque">
+
+      <h2>🐍 Mis contribuciones</h2>
+
+      <div class="tarjeta">
+
+        <img
+          class="snake"
+          src="https://raw.githubusercontent.com/Samu4194/Samu4194/output/github-snake.svg"
+          alt="Serpiente animada de GitHub"
+          loading="lazy"
+        >
+
+      </div>
+
+    </section>
+
+    <!-- PERRITO ANIMADO -->
+
+    <div class="mascota">
+
+      <img
+        src="https://raw.githubusercontent.com/Samu4194/Samu4194/main/perro.gif"
+        alt="Perrito pixelado corriendo"
+      >
+
+      <p>Gracias por visitar mi perfil.</p>
+
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+
+  <footer>
+
+    Samuel Carrera ·
+
+    <a
+      href="https://github.com/Samu4194"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub: @Samu4194
+    </a>
+
+  </footer>
+
+  <!-- ANIMACIÓN DE TEXTO -->
+
+  <script>
+
+    const frases = [
+      "Java | C# | React",
+      "Explorando el desarrollo de software",
+      "Aprendiendo y creando con código"
+    ];
+
+    const elemento = document.getElementById("escritura");
+
+    let frase = 0;
+    let letra = 0;
+    let borrando = false;
+
+    function escribir() {
+
+      const actual = frases[frase];
+
+      elemento.textContent = actual.slice(0, letra);
+
+      if (!borrando && letra < actual.length) {
+
+        letra++;
+        setTimeout(escribir, 85);
+
+      } else if (!borrando) {
+
+        borrando = true;
+        setTimeout(escribir, 1500);
+
+      } else if (letra > 0) {
+
+        letra--;
+        setTimeout(escribir, 45);
+
+      } else {
+
+        borrando = false;
+        frase = (frase + 1) % frases.length;
+        setTimeout(escribir, 350);
+
+      }
+
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      escribir();
+    }
+
+  </script>
+
+</body>
+</html>
