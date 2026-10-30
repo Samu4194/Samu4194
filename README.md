@@ -3,7 +3,7 @@
 
 ![Banner](https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:2563eb&height=190&section=header&text=Samuel%20Carrera&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Ingenieria%20de%20Software&descAlignY=60&descSize=18)
 
-### 👋 ¡Hola! Bienvenido a mi perfil
+###  ¡Hola! Bienvenido a mi perfil 😊
 
 Soy **Samuel Carrera**, estudiante de Ingeniería de Software.
 
@@ -70,8 +70,49 @@ trabajos académicos y proyectos de desarrollo de software.
 
 ---
 
+## ✨ Un poco más sobre mí
+
 <div align="center">
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3500&pause=1000&color=38BDF8&center=true&vCenter=true&width=600&lines=Java+%7C+C%23+%7C+React;Explorando+el+desarrollo+de+software;Aprendiendo+y+creando+con+codigo" alt="Texto animado" />
+
+<br>
+
+![Desarrollo Web](https://img.shields.io/badge/Desarrollo-Web-2563EB?style=for-the-badge)
+
+![Programación](https://img.shields.io/badge/Pasion-por_la_programacion-0F172A?style=for-the-badge)
+
+</div>
+
+---
+
+## 📊 Mis estadísticas de GitHub
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=Samu4194&show_icons=true&theme=tokyonight&hide_border=true" alt="Estadísticas de GitHub" />
+
+</div>
+
+---
+
+## 📈 Mi actividad en GitHub
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Samu4194&theme=tokyo-night&hide_border=true" alt="Gráfico de actividad" />
+
+</div>
+
+---
+
+
 *Gracias por visitar mi perfil.*
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2563eb,100:0f172a&height=120&section=footer" width="100%" />
+
+</div>
 
 </div>
